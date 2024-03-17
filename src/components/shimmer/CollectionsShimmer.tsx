@@ -1,4 +1,4 @@
-
+import { v4 as uuidv4 } from 'uuid'
 import RestaurantCardShimmer from './RestaurantCardShimmer'
 
 const CollectionsShimmer = () => {
@@ -10,7 +10,7 @@ const CollectionsShimmer = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-2">
                 {
                     Array(10).fill("").map(() => (
-                        <RestaurantCardShimmer />
+                        <RestaurantCardShimmer key={uuidv4()} />
                     ))
                 }
             </div>

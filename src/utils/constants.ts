@@ -20,7 +20,7 @@ export const FETCH_REST_URL =
 
 	
 export const FETCH_MENU_URL =
-	"https://proxy.cors.sh/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.87560&lng=80.91150&restaurantId=85054&catalog_qa=undefined&submitAction=ENTER";
+	"https://proxy.cors.sh/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&";
 export const OFFER_LOGO_URL =
 	"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_20,h_20/";
 export const IMG_INFO_URL =

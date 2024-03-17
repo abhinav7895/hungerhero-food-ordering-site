@@ -130,7 +130,7 @@ const Home = () => {
           </div>
         </section>
       }
-      <section className="mt-10 mb-10 container mx-auto">
+      <section className="my-10 container mx-auto">
         <div>
           <h2 className="text-2xl md:text-3xl text-gray-700  font-bold">{allRestaurants[4]?.title}</h2>
         </div>

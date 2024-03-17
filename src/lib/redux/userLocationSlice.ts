@@ -2,9 +2,9 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { locationType } from "../../types";
 
 const initialState: locationType = {
-  latitude: 28.7040592,
-  longitude: 77.1024901,
-  city: "Delhi",
+  latitude: 25.9462838,
+  longitude: 83.5610119,
+  city: "Mau",
 };
 
 const userLocationSlice = createSlice({

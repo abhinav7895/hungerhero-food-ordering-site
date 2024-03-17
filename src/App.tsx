@@ -14,6 +14,7 @@ const Cart = lazy(() => import("./_root/pages/Cart"));
 const Restaurant = lazy(() => import("./_root/pages/Restaurant"));
 const Search = lazy(() => import("./_root/pages/Search"));
 const  RestaurantCollections = lazy(() => import("./_root/pages/RestaurantCollections"));
+const  RestaurantMenu = lazy(() => import("./_root/pages/RestaurantMenu"));
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/collections/:collectionId",
         element: <Suspense fallback="Loading Restaurant"><RestaurantCollections /></Suspense>
+      },
+      {
+        path: "/restaurant/:restaurantID",
+        element: <Suspense fallback="Loading Restaurant"><RestaurantMenu /></Suspense>
       },
       {
         path: "/offers-near-me",

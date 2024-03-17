@@ -11,7 +11,7 @@ const RestaurantCard = ({ info }: { info: Info }) => {
 
     return (
         <Link className="hover:scale-95 transition-all duration-300" to={"/restaurant/" + info.id}>
-            <div className="w-[270px] md:w-80 p-2 min-h-[280px]">
+            <div className=" w-[270px] md:w-80 p-2 min-h-[280px]">
                 <div className="relative w-full">
 
                     <div className={`w-full h-[191px] bg-gradient-to-tr from-gray-400 to-gray-800 rounded-xl ${imageLoaded ? 'hidden' : ''}`}></div>
