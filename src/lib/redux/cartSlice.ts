@@ -17,14 +17,6 @@ const cartSlice = createSlice({
 				state.items.push(action.payload.item);
 			}
 		},
-		// removeFromCart: (state, action) => {
-		// 	state.items = state.items.filter(
-		// 		(item) => item[0].id !== action.payload.id
-		// 	);
-		// 	if (state.items.length == 0) {
-		// 		state.restaurant = null;
-		// 	}
-		// },
 		increaseCount: (state, action) => {
 			state.items.map((item) => {
 				if (item[0].id == action.payload) {

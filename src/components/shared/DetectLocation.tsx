@@ -23,10 +23,6 @@ const DetectLocation = ({ onClose }: { onClose: () => void }) => {
     }
 
     const handleDetectLocation = async (locationType: string | null) => {
-
-        // when locationType is "default"
-        console.log(city, locationType);
-
         if (city !== "Mau" && locationType) {
             dispatch(setLocation({
                 latitude: 25.9462838, longitude: 83.5610119, city: "Mau"

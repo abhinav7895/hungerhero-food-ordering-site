@@ -1,6 +1,6 @@
 import { Offer } from "../../types/RestaurantMenuTypes/restOfferTypes"
 import { Info } from "../../types/RestaurantMenuTypes/restInfoType";
-import { IMG_URL, OFFER_LOGO_URL } from "../../utils/constants";
+import { OFFER_LOGO_URL } from "../../utils/constants";
 import { v4 as uuidv4 } from "uuid";
 
 const RestaurantProfileOffer = ({ offers, info }: { offers: Offer[] | undefined, info: Info | undefined }) => {
@@ -54,7 +54,7 @@ const RestaurantProfileOffer = ({ offers, info }: { offers: Offer[] | undefined,
             <div className="w-full">
             <div className="flex gap-1 lg:gap-4 overflow-x-scroll scroll-smooth scrollbar-hide w-full  mt-6">
                 {offers?.map(({ info }: Offer) => (
-                    <div className="border p-2 min-w-[200px] rounded-xl">
+                    <div key={uuidv4()} className="border p-2 min-w-[200px] rounded-xl">
                         <div className="flex items-center gap-1 font-semibold text-gray-700 text-sm   truncate">
                             <img src={OFFER_LOGO_URL + info?.offerLogo} alt={info.description} />
                             <h4>{info.header}</h4>

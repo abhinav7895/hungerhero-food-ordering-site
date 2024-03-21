@@ -140,7 +140,7 @@ const Home = () => {
             setShowExtraData={setShowExtraData} />
         </div>
         {filteredRestaurants?.length !== 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-2">
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-2">
             {filteredRestaurants.map((restaurant: Restaurant) => (
               <RestaurantCard info={restaurant.info} key={restaurant.info.parentId + uuidv4()} />
             ))}

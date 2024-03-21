@@ -5,14 +5,16 @@ import { IoMdRefresh } from "react-icons/io";
 import RestaurantProfileOffer from '../../components/shared/RestaurantProfileOffer';
 import RestaurantMenuInfo from '../../components/shared/RestaurantMenuInfo';
 
-import { IMG_RESTAURANT_NOT_URL, IMG_URL } from '../../utils/constants';
+import { IMG_URL } from '../../utils/constants';
+import { useState } from 'react';
+import { restCartType } from '../../types/CartTypes/restCart';
 
 const RestaurantMenu = () => {
     const { restaurantID } = useParams();
     const menu = useRestaurant(restaurantID);
     const resAddedToCart = useSelector((store) => store?.cart);
 
-    const resCart = {
+    const resCart : restCartType = {
         name: menu?.restInfo?.card?.card?.info?.name,
         id: menu?.restInfo?.card?.card?.info?.id,
         areaName: menu?.restInfo?.card?.card?.info?.areaName,
@@ -40,7 +42,7 @@ const RestaurantMenu = () => {
         </section>) : (
             <section className='max-w-[800px] mx-auto px-4'>
                 <RestaurantProfileOffer offers={menu?.restOffer?.card?.card?.gridElements?.infoWithStyle?.offers} info={menu?.restInfo?.card?.card?.info} />
-                <RestaurantMenuInfo menuInfo={menu?.restMenus?.groupedCard?.cardGroupMap?.REGULAR?.cards} resCart={resCart}/>
+                <RestaurantMenuInfo menuInfo={menu?.restMenus?.groupedCard?.cardGroupMap?.REGULAR?.cards} resCart={resCart} />
             </section>
         )
 }

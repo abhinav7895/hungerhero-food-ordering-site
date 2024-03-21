@@ -17,6 +17,10 @@ export interface RootState {
     userLocation : locationType,
 }
 
+export interface ReduxCartType {
+    
+}
+
 export interface SetType {
     value : string,
 }
