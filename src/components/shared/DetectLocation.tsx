@@ -1,16 +1,20 @@
 import { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
 import { setLocation } from "../../lib/redux/userLocationSlice";
 import { FaLocationArrow } from "react-icons/fa6";
 import { RxCross1 } from "react-icons/rx"
 import { getCityName } from "../../utils/helper";
+import { useNavigate } from "react-router-dom";
+import { RootState } from "../../types";
 
 
 const DetectLocation = ({ onClose }: { onClose: () => void }) => {
     const [isFetching, setIsFetching] = useState<boolean>(false);
     const dispatch = useDispatch<Dispatch>();
     const menuRef = useRef(null);
+    const navigate = useNavigate();
+    const { city } = useSelector((store: RootState) => store.userLocation);
 
     const closeLocationMenu = (e: React.MouseEvent) => {
         if (e.target === menuRef.current) {
@@ -21,33 +25,39 @@ const DetectLocation = ({ onClose }: { onClose: () => void }) => {
     const handleDetectLocation = async (locationType: string | null) => {
 
         // when locationType is "default"
-        if (locationType) {
+        console.log(city, locationType);
+
+        if (city !== "Mau" && locationType) {
             dispatch(setLocation({
                 latitude: 25.9462838, longitude: 83.5610119, city: "Mau"
             }))
             onClose();
+            navigate("/");
             return;
+        } else if(city === "Mau" && !locationType){
+            // when locationType is null
+            setIsFetching(true);
+            navigator.geolocation.getCurrentPosition(async (location) => {
+                try {
+                    const { latitude, longitude } = location.coords;
+                    const city = await getCityName(latitude, longitude);
+                    if (latitude && longitude && city) {
+                        dispatch(setLocation({
+                            latitude, longitude, city
+                        }))
+                        onClose();
+                        setIsFetching(false);
+                        navigate("/");
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+            }, (error) => {
+                console.error("Error while fetching location : " + error);
+            })
         }
 
-        // when locationType is null
-        setIsFetching(true);
-        navigator.geolocation.getCurrentPosition(async (location) => {
-            try {
-                const { latitude, longitude } = location.coords;
-                const city = await getCityName(latitude, longitude);
-                if (latitude && longitude && city) {
-                    dispatch(setLocation({
-                        latitude, longitude, city
-                    }))
-                    onClose();
-                    setIsFetching(false);
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        }, (error) => {
-            console.error("Error while fetching location : " + error);
-        })
+
     }
 
     return (

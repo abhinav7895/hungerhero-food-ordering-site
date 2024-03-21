@@ -3,14 +3,13 @@ import useRestaurant from '../../hooks/useRestaurant'
 import { Link, useParams } from 'react-router-dom';
 import { IoMdRefresh } from "react-icons/io";
 import RestaurantProfileOffer from '../../components/shared/RestaurantProfileOffer';
+import RestaurantMenuInfo from '../../components/shared/RestaurantMenuInfo';
 
 import { IMG_RESTAURANT_NOT_URL, IMG_URL } from '../../utils/constants';
 
 const RestaurantMenu = () => {
     const { restaurantID } = useParams();
     const menu = useRestaurant(restaurantID);
-    console.log(menu);
-
     const resAddedToCart = useSelector((store) => store?.cart);
 
     const resCart = {
@@ -27,7 +26,7 @@ const RestaurantMenu = () => {
     }
 
     return !menu || !resCart.name ?
-        (<section className="flex justify-center items-center flex-col w-full mt-5">
+        (<section className="flex  justify-center items-center flex-col w-full mt-5">
             <img className=" w-56 md:w-[400px]" src={"/assets/data-not-found.avif"} />
             <h3 className="text-2xl md:text-4xl font-bold  text-gray-700 text-center">Restaurant Details Not Found.</h3>
             <p className="text-lg md:text-xl text-gray-600 mt-5">Something went wrong.</p>
@@ -39,8 +38,9 @@ const RestaurantMenu = () => {
                 <span className="relative w-full text-left text-white transition-colors duration-200 ease-in-out group-hover:text-white flex flex-center gap-1">Refresh <IoMdRefresh className=' group-hover:animate-pulse text-xl' /></span>
             </Link>
         </section>) : (
-            <section className='max-w-[800px] mx-auto'>
-                <RestaurantProfileOffer  offers={menu?.restOffer?.card?.card?.gridElements?.infoWithStyle?.offers} info={menu?.restInfo?.card?.card?.info} />
+            <section className='max-w-[800px] mx-auto px-4'>
+                <RestaurantProfileOffer offers={menu?.restOffer?.card?.card?.gridElements?.infoWithStyle?.offers} info={menu?.restInfo?.card?.card?.info} />
+                <RestaurantMenuInfo menuInfo={menu?.restMenus?.groupedCard?.cardGroupMap?.REGULAR?.cards} resCart={resCart}/>
             </section>
         )
 }

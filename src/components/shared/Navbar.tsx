@@ -30,7 +30,7 @@ const Navbar = () => {
     <nav className="flex-between py-3 px-5 max-w-[1440px] bg-white shadow-md mx-auto">
       {/* for logo and the location */}
       <div className="flex-center gap-3">
-        <Link to={"/"} className={`w-12 sm:w-14`}><img src="/assets/logo.svg" alt="logo" /></Link>
+        <Link to={"/"} className={`w-[48px] sm:w-14`}><img src="/assets/logo.svg" alt="logo" /></Link>
         <div className={`flex-center gap-2 border p-1 rounded-md border-gray-400 bg-blue-50 hover:bg-white delay-100 transition-all`}>
           <div className="flex-center gap-[1px] sm:gap-[2px] text-xs  sm:text-sm "><FaLocationDot className="text-red-500 text-base" /><span className=" text-gray-600">{userLocation?.city || "Delhi"}</span></div>
           <div className="flex-center">

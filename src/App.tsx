@@ -5,6 +5,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import Home from "./_root/pages/Home";
 import store from "./lib/redux/store";
 import { Provider as ReduxProvider } from "react-redux";
+import { Toaster } from "./lib/shadcn/components/ui/toaster";
+
 
 const Signin = lazy(() => import("./_auth/forms/Signin"));
 const Signup = lazy(() => import("./_auth/forms/Signup"));
@@ -77,6 +79,7 @@ const App = () => {
         <RouterProvider router={router}>
         </RouterProvider>
       </ReduxProvider >
+      <Toaster />
     </main>
   )
 }

@@ -55,7 +55,7 @@ const Home = () => {
 
   if (!allRestaurants) {
     return (
-      <div className="flex justify-center items-center flex-col w-full">
+      <div className="flex justify-center items-center flex-col w-full mt-5">
         <img className=" w-56 md:w-[400px]" src={"assets/data-not-found.avif"} />
         <h3 className="text-2xl md:text-4xl font-bold  text-gray-700">Data Not Found.</h3>
         <p className="text-lg md:text-xl text-gray-600 mt-5">Something went wrong.</p>
