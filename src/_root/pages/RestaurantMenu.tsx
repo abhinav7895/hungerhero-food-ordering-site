@@ -4,7 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { IoMdRefresh } from "react-icons/io";
 import RestaurantProfileOffer from '../../components/shared/RestaurantProfileOffer';
 import RestaurantMenuInfo from '../../components/shared/RestaurantMenuInfo';
-
+import RestaurantMenuShimmer from '../../components/shimmer/RestaurantMenuShimmer';
 import { IMG_URL } from '../../utils/constants';
 import { useState } from 'react';
 import { restCartType } from '../../types/CartTypes/restCart';
@@ -24,7 +24,7 @@ const RestaurantMenu = () => {
     };
 
     if (!menu) {
-        return <h1>Loading</h1>
+        return <RestaurantMenuShimmer />
     }
 
     return !menu || !resCart.name ?

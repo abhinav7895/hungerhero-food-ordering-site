@@ -88,7 +88,7 @@ const MenuItems = (card: any) => {
                                         </div>
                                         <div>
                                             <div className="relative size-20 w-[100px] rounded-lg bg-slate-800">
-                                                <img className="w-full h-full  object-cover" src={imageID ? IMG_SMALL_URL + imageID : "/assets/image.png"} alt="" />
+                                                <img className="w-full h-full  object-cover rounded-lg border border-gray-400" src={imageID ? IMG_SMALL_URL + imageID : "/assets/image.png"} alt="" />
                                                 <div className="absolute rounded-md  w-16 h-6 bg-white border border-gray-300 bottom-[-4px] left-0 right-0 mx-auto items-center px-2 flex justify-between shadow-md">
                                                     {itemsCart?.items?.filter(
                                                         (item) =>
