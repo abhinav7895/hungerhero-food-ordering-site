@@ -17,7 +17,7 @@ const MenuItems = (card: any) => {
     const [popItem, setPopItem] = useState(null);
     const itemsCart = useSelector((store) => store.cart);
     const dispatch = useDispatch();
-    const { toast } = useToast()
+    const { toast } = useToast();
     const navigate = useNavigate();
 
     const closeFreshRestPopup = () => {
@@ -26,7 +26,6 @@ const MenuItems = (card: any) => {
 
 
     const addFoodItem = (item) => {
-        console.log(item.name);
         if (
             itemsCart?.restaurant?.id == undefined ||
             itemsCart?.restaurant?.id == resCart?.id
@@ -68,6 +67,7 @@ const MenuItems = (card: any) => {
                             const isVeg = card?.card?.info?.itemAttribute
                                 ?.vegClassifier;
                             const name = card?.card?.info?.name;
+                            const isBestseller = card?.card?.info?.isBestseller;
                             const price = (card?.card?.info?.price ?? card?.card?.info?.defaultPrice) / 100;
                             const description = card?.card?.info?.description;
                             const imageID = card?.card?.info?.imageId;
@@ -77,7 +77,7 @@ const MenuItems = (card: any) => {
                                         <div className=" w-[80%]">
                                             <div className="flex gap-1 item-center">
                                                 <img className="w-4" src={isVeg === "VEG" ? "/assets/veg.svg" : "/assets/nonveg.svg"} alt="" />
-                                                {true && <span className="text-[#ee9c00] flex items-center  text-sm tracking-tighter"><IoIosStar /> Bestseller</span>}
+                                                {isBestseller && <span className="text-[#ee9c00] flex items-center  text-sm tracking-tighter"><IoIosStar /> Bestseller</span>}
                                             </div>
                                             <p className="flex flex-col">
                                                 <span>

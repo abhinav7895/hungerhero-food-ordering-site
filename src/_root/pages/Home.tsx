@@ -72,7 +72,7 @@ const Home = () => {
   if (allRestaurants[6]) {
     return (
       <div className="body-box unservice-page max-w-96 mx-auto mt-10">
-        <img className="w-full" src={allRestaurants[6]?.imageLink} />
+        <img loading="lazy" className="w-full" src={allRestaurants[6]?.imageLink} />
         <h3 className="text-2xl text-center fonr-bold text-gray-900">{allRestaurants[6]?.title}</h3>
         <p className="text-center text-lg mt-2 text-gray-700">We don’t have any services here till now.</p>
       </div>

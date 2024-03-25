@@ -6,7 +6,6 @@ import RestaurantProfileOffer from '../../components/shared/RestaurantProfileOff
 import RestaurantMenuInfo from '../../components/shared/RestaurantMenuInfo';
 import RestaurantMenuShimmer from '../../components/shimmer/RestaurantMenuShimmer';
 import { IMG_URL } from '../../utils/constants';
-import { useState } from 'react';
 import { restCartType } from '../../types/CartTypes/restCart';
 
 const RestaurantMenu = () => {

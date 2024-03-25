@@ -26,7 +26,7 @@ const RestaurantMenuShimmer = () => {
             <div className="w-full">
                 <div className="flex gap-1 lg:gap-4 overflow-x-scroll scroll-smooth scrollbar-hide w-full  mt-6">
                     {Array(10).fill("").map(() => (
-                        <div className="border bg-gray-200 animate-pulse p-2 min-w-[200px] h-[70px] rounded-xl">
+                        <div key={uuidv4()} className="border bg-gray-200 animate-pulse p-2 min-w-[200px] h-[70px] rounded-xl">
                             <div className="flex items-center gap-1 font-semibold text-gray-700 text-sm   truncate">
                                 <div></div>
                                 <div></div>

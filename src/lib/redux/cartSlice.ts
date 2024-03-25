@@ -4,6 +4,7 @@ const cartSlice = createSlice({
 	initialState: {
 		items: [],
 		restaurant: null,
+		tipAmount : 0,
 	},
 	reducers: {
 		addToCart: (state, action) => {
@@ -34,16 +35,24 @@ const cartSlice = createSlice({
 				}
 				if (state.items.length == 0) {
 					state.restaurant = null;
+					state.tipAmount = 0;
 				}
 			});
 		},
 		clearCart: (state) => {
 			state.items = [];
 			state.restaurant = null;
+			state.tipAmount = 0;
+		},
+		addTip : (state, action) => {
+			state.tipAmount = action.payload;
+		},
+		deleteTip : (state) => {
+			state.tipAmount = 0;
 		},
 	},
 });
-export const { addToCart, increaseCount, decreaseCount, clearCart } =
+export const { addToCart, increaseCount, decreaseCount, clearCart, addTip, deleteTip } =
 	cartSlice.actions;
     
 export default cartSlice.reducer;

@@ -23,7 +23,6 @@ const useCollections = (collectionId : string | undefined) : CollectionCardType[
 			);
 			const json = await data.json();
 			const restInfo = json?.data?.cards;
-            console.log(restInfo);  
 			setRestaurant(restInfo);
 		} catch (err) {
 			console.log(err);

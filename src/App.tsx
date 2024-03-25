@@ -24,11 +24,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/sign-in",
-        element: <Suspense fallback="Loading..."><Signin /></Suspense>
+        element: <Suspense ><Signin /></Suspense>
       },
       {
         path: "/sign-up",
-        element: <Suspense fallback="Loading..."><Signup /></Suspense>
+        element: <Suspense ><Signup /></Suspense>
       }
     ]
   },
@@ -41,31 +41,31 @@ const router = createBrowserRouter([
       },
       {
         path: "/restaurants/:resId",
-        element: <Suspense fallback="Loading Restaurant"><Restaurant /></Suspense>
+        element: <Suspense><Restaurant /></Suspense>
       },
       {
         path: "/collections/:collectionId",
-        element: <Suspense fallback="Loading Restaurant"><RestaurantCollections /></Suspense>
+        element: <Suspense><RestaurantCollections /></Suspense>
       },
       {
         path: "/restaurant/:restaurantID",
-        element: <Suspense fallback="Loading Restaurant"><RestaurantMenu /></Suspense>
+        element: <Suspense><RestaurantMenu /></Suspense>
       },
       {
         path: "/offers-near-me",
-        element: <Suspense fallback="Loading Offers"><Offers /></Suspense>
+        element: <Suspense><Offers /></Suspense>
       },
       {
         path: "/support",
-        element: <Suspense fallback="Loading Support Page"><Support /></Suspense>
+        element: <Suspense><Support /></Suspense>
       },
       {
         path: "/checkout",
-        element: <Suspense fallback="Loading Cart Page"><Cart /></Suspense>
+        element: <Suspense><Cart /></Suspense>
       },
       {
         path: "/search",
-        element: <Suspense fallback="Loading Search Page"><Search /></Suspense>
+        element: <Suspense><Search /></Suspense>
       },
 
     ]
