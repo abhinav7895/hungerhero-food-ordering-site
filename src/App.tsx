@@ -6,6 +6,8 @@ import Home from "./_root/pages/Home";
 import store from "./lib/redux/store";
 import { Provider as ReduxProvider } from "react-redux";
 import { Toaster } from "./lib/shadcn/components/ui/toaster";
+import Payment from "./_root/pages/Payment";
+
 
 
 const Signin = lazy(() => import("./_auth/forms/Signin"));
@@ -15,8 +17,8 @@ const Support = lazy(() => import("./_root/pages/Support"));
 const Cart = lazy(() => import("./_root/pages/Cart"));
 const Restaurant = lazy(() => import("./_root/pages/Restaurant"));
 const Search = lazy(() => import("./_root/pages/Search"));
-const  RestaurantCollections = lazy(() => import("./_root/pages/RestaurantCollections"));
-const  RestaurantMenu = lazy(() => import("./_root/pages/RestaurantMenu"));
+const RestaurantCollections = lazy(() => import("./_root/pages/RestaurantCollections"));
+const RestaurantMenu = lazy(() => import("./_root/pages/RestaurantMenu"));
 
 const router = createBrowserRouter([
   {
@@ -67,8 +69,11 @@ const router = createBrowserRouter([
         path: "/search",
         element: <Suspense><Search /></Suspense>
       },
-
     ]
+  },
+  {
+    element: <Payment />,
+    path: "/payments"
   }
 ])
 

@@ -7,12 +7,13 @@ import { IoMdCart } from "react-icons/io";
 import TipPopup from "../../components/shared/TipsPopup"
 import { RxCross2 } from "react-icons/rx";
 import { deleteTip } from "../../lib/redux/cartSlice"
+import { useNavigate } from "react-router-dom"
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart);
   const { tipAmount } = useSelector((store) => store.cart);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [showTipPopup, setShowTipPopup] = useState(false);
   const [totalItemPrice, setTotalItemPrice] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -32,15 +33,13 @@ const Cart = () => {
         Math.floor(totalSum + (itemPrice / 100) * currentItem[1])
       )
     }, 0));
-  }, [cartItems]);
+  }, [cartItems, totalItemPrice]);
 
   useEffect(() => {
+    const updatedTotalPrice = totalItemPrice + 40 + Number(tipAmount) + 40;
+    setTotalPrice(updatedTotalPrice);
+  }, [totalItemPrice, tipAmount]);
 
-  })
-
-  useEffect(() => {
-    setTotalPrice(Math.floor(+totalItemPrice + +tipAmount + 40 + 40));
-  }, [totalPrice, tipAmount]);
 
   if (!cartItems.restaurant) {
     return (
@@ -94,7 +93,7 @@ const Cart = () => {
           <div className="flex w-full justify-between items-center text-sm text-gray-600 border-b-2 mb-3 pb-3 border-gray-400"><span>GST and Restaurant Charges</span><span>₹40</span></div>
         </div>
       </div>
-      <div className="flex w-full justify-between items-center text-gray-600 text-2xl  font-semibold max-w-screen-sm mx-auto mt-2 px-8"><span>To Pay {" "} ₹{totalPrice}</span><button className="bg-gradient-to-r from-orange-400 to-red-500 p-2 text-white rounded-md hover:from-orange-500 hover:to-red-600 transition-all ease-out delay-300">Make Payment</button></div>
+      <div className="flex w-full justify-between items-center text-gray-600 text-2xl  font-semibold max-w-screen-sm mx-auto mt-2 px-8"><span>To Pay {" "} ₹{totalPrice}</span><button onClick={() => { navigate("/payments") }} className="bg-gradient-to-r from-orange-400 to-red-500 p-2 text-white rounded-md hover:from-orange-500 hover:to-red-600 transition-all ease-out delay-300">Make Payment</button></div>
 
     </section>
   )

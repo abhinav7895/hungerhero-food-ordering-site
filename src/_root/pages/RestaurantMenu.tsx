@@ -7,6 +7,7 @@ import RestaurantMenuInfo from '../../components/shared/RestaurantMenuInfo';
 import RestaurantMenuShimmer from '../../components/shimmer/RestaurantMenuShimmer';
 import { IMG_URL } from '../../utils/constants';
 import { restCartType } from '../../types/CartTypes/restCart';
+import { useEffect } from 'react';
 
 const RestaurantMenu = () => {
     const { restaurantID } = useParams();
@@ -22,6 +23,15 @@ const RestaurantMenu = () => {
         distance: menu?.restInfo?.card?.card?.info?.sla,
     };
 
+    useEffect(() => {
+        const getData = async() => {
+            const res = await fetch("http://localhost:8000/");
+            console.log(await res.text());
+        }
+        getData()
+    }, []);
+
+    
     if (!menu) {
         return <RestaurantMenuShimmer />
     }

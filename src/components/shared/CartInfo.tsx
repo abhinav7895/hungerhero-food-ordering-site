@@ -1,14 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { increaseCount, decreaseCount } from "../../lib/redux/cartSlice";
-import { useEffect, useState } from "react";
-
 const CartInfo = ({item}) => {
-    const { name, itemAttribute, price, defaultPrice, id } = item[0];
-    
-    const [totalPrice, setTotalPrice] = useState();
+    const { name, itemAttribute, price, defaultPrice } = item[0];
     const count = item[1];
     const dispatch = useDispatch();
-    const cartItems = useSelector((store) => store.cart);
 
     const addFoodItem = (i) => {
         dispatch(increaseCount(i));
@@ -18,16 +13,11 @@ const CartInfo = ({item}) => {
         dispatch(decreaseCount(i));
     };
 
-    useEffect(() => {
-        const price = item[0]?.defaultPrice ? item[0]?.defaultPrice : item[0]?.price;
-        setTotalPrice((price / 100) * item[1])
-    }, [])
-
     return (
         <div className=" flex justify-between mt-3">
             <div className="flex gap-[2px] items-center">
                 <img className="w-[20px]" src={itemAttribute?.vegClassifier == "VEG" ? "/assets/veg.svg" : "/assets/nonveg.svg"} alt="" />
-                <p className="text-lg text-gray-700">{name}</p>
+                <p className="text-base text-gray-600 line-clamp-1">{name}</p>
             </div>
             <div className="flex gap-3 items-center">
                 <div className="flex items-center w-20 h-8 p-1 px-2 justify-between border ">
