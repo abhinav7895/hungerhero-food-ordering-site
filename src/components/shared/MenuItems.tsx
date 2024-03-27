@@ -7,9 +7,9 @@ import { addToCart, decreaseCount, increaseCount } from "../../lib/redux/cartSli
 import { useToast } from "../../lib/shadcn/components/ui/use-toast";
 import { v4 as uuidv4 } from "uuid";
 import { ToastAction } from "@radix-ui/react-toast";
-
 import { useNavigate } from "react-router-dom";
 import RestFreshPopup from "./RestFreshPopup";
+
 const MenuItems = (card: any) => {
     const { title, itemCards, resCart } = card;
     const [showMenu, setShowMenu] = useState(true);
@@ -68,7 +68,7 @@ const MenuItems = (card: any) => {
                                 ?.vegClassifier;
                             const name = card?.card?.info?.name;
                             const isBestseller = card?.card?.info?.isBestseller;
-                            const price = (card?.card?.info?.price ?? card?.card?.info?.defaultPrice) / 100;
+                            const price = Math.floor((card?.card?.info?.price ?? card?.card?.info?.defaultPrice) / 100);
                             const description = card?.card?.info?.description;
                             const imageID = card?.card?.info?.imageId;
                             return (
