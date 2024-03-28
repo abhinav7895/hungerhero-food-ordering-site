@@ -23,14 +23,6 @@ const RestaurantMenu = () => {
         distance: menu?.restInfo?.card?.card?.info?.sla,
     };
 
-    useEffect(() => {
-        const getData = async() => {
-            const res = await fetch("http://localhost:8000/");
-            console.log(await res.text());
-        }
-        getData()
-    }, []);
-
     
     if (!menu) {
         return <RestaurantMenuShimmer />

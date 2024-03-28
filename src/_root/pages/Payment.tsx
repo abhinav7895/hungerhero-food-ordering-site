@@ -6,14 +6,16 @@ const Payment = () => {
   console.log(restaurant);
   const [totalItemPrice, setTotalItemPrice] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-  
+
   useEffect(() => {
-    setTotalItemPrice(items.reduce((totalSum, currentItem) => {
-      const itemPrice = currentItem[0]?.defaultPrice ? currentItem[0]?.defaultPrice : currentItem[0]?.price;
-      return (
-        Math.floor(totalSum + (itemPrice / 100) * currentItem[1])
-      )
-    }, 0));
+    setTotalItemPrice(
+      items.reduce((totalSum, currentItem) => {
+        const itemPrice = currentItem[0]?.defaultPrice
+          ? currentItem[0]?.defaultPrice
+          : currentItem[0]?.price;
+        return Math.floor(totalSum + (itemPrice / 100) * currentItem[1]);
+      }, 0)
+    );
   }, [items]);
 
   useEffect(() => {
@@ -28,12 +30,12 @@ const Payment = () => {
           <img
             src="/assets/logo.svg"
             alt="logo"
-            className="object-contain h-3 md:h-8 w-auto hidden md:flex"
+            className="object-contain h-3 h-8 w-auto  md:flex"
           />
         </nav>
       </header>
 
-      <div className="flex-1 md:flex-initial w-full lg:w-[920px] bg-white py-8 px-4 md:p-8 gap-8 md:rounded-2xl grid grid-cols-1 md:grid-cols-2 overflow-hidden mx-auto h-screen my-auto">
+      <div className="flex-1 mt-16 md:flex-initial w-full lg:w-[920px] bg-white py-8 px-4 md:p-8 gap-8 md:rounded-2xl grid grid-cols-1 md:grid-cols-2 overflow-hidden mx-auto h-screen my-auto">
         <div className="flex flex-col">
           <div className="flex md:hidden mb-6 items-center">
             <img
@@ -41,9 +43,9 @@ const Payment = () => {
               alt="logo"
               className="object-contain h-3 md:h-8 w-auto hidden md:flex"
             />
-            <h2 className="text-lg font-bold">{restaurant?.name}</h2>
+            <h2 className="text-2xl font-bold">{restaurant?.name}</h2>
           </div>
-          <h2 className="text-xl font-semibold mb-4">Payment Details</h2>
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Payment Details</h2>
           <div className="grid gap-5">
             <div className="grid gap-1">
               <label
@@ -69,13 +71,30 @@ const Payment = () => {
                   Phone (WhatsApp enabled to access later)
                 </label>
                 <input
-                      autoComplete="tel"
-                      className="px-2.5 h-10 rounded-md border border-neutral-300 focus:outline-grey-300 autofill:bg-white"
-                      id="phone"
-                      placeholder="Enter Phone"
-                      type="tel"
-                      name="phone"
-                    />
+                  autoComplete="tel"
+                  className="px-2.5 h-10 rounded-md border border-neutral-300 focus:outline-grey-300 autofill:bg-white"
+                  id="phone"
+                  placeholder="Enter Phone"
+                  type="tel"
+                  name="phone"
+                />
+              </div>
+            </div>
+            <div className="min-h-[64px] w-full">
+              <div className="grid gap-1">
+                <label
+                  className="text-sm font-medium text-primary"
+                  htmlFor="address"
+                >
+                  Address
+                </label>
+                <textarea
+                  id="address"
+
+                  className="block p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Flat No. 302, XYZ Apartment Main Street, Ashok Nagar South Delhi District
+110021 New Delhi"
+                ></textarea>
               </div>
             </div>
             <div className="relative">
@@ -112,7 +131,12 @@ const Payment = () => {
                   name="upiID"
                 />
               </div>
-              <img width={40} className="absolute font-medium text-sm text-[#202020] z-10 left-2 top-[50px] disabled:opacity-50 transition-opacity" src="assets/upi-ar21.svg" alt="upi" />
+              <img
+                width={40}
+                className="absolute font-medium text-sm text-[#202020] z-10 left-2 top-[50px] disabled:opacity-50 transition-opacity"
+                src="assets/upi-ar21.svg"
+                alt="upi"
+              />
               <button className="absolute font-medium text-sm text-[#202020] z-10 right-2 top-[50px] disabled:opacity-50 transition-opacity">
                 Verify
               </button>
@@ -132,15 +156,17 @@ const Payment = () => {
               className="md:hidden shrink-0 rounded-md h-4 w-auto object-contain mr-4"
             />
             <h2 className="text-lg md:text-2xl font-bold">
-            {restaurant?.name}
+              {restaurant?.name}
             </h2>
           </div>
           <div>
-            <div
-              className="prose prose-neutral  overflow-hidden mb-2 font-medium whitespace-break-spaces"
-            >
-            <p className="text-base text-gray-500 font-light">{restaurant?.areaName}</p>
-            <p className="text-sm text-gray-500 font-light">{items.length} items</p>
+            <div className="prose prose-neutral  overflow-hidden mb-2 font-medium whitespace-break-spaces">
+              <p className="text-base text-gray-500 font-light">
+                {restaurant?.areaName}
+              </p>
+              <p className="text-sm text-gray-500 font-light">
+                {items.length} items
+              </p>
             </div>
           </div>
           <div className="relative w-full aspect-video">

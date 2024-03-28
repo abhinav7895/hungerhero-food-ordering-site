@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { Info } from "../../types/allRest"
 import { IMG_URL } from "../../utils/constants"
 import { useState } from "react";
+import { handleScrollTop } from "../../utils/helper";
 
 const RestaurantCard = ({ info }: { info: Info }) => {
     const [imageLoaded, setImageLoaded] = useState(false);
@@ -10,7 +11,7 @@ const RestaurantCard = ({ info }: { info: Info }) => {
     };
 
     return (
-        <Link className="hover:scale-95 transition-all duration-300" to={"/restaurant/" + info.id}>
+        <Link onClick={() => {handleScrollTop()}} className="hover:scale-95 transition-all duration-300" to={"/restaurant/" + info.id}>
             <div className=" w-[270px] md:w-80 p-2 min-h-[280px]">
                 <div className="relative w-full">
 

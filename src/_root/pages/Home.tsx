@@ -11,6 +11,11 @@ import RestaurantCardShimmer from "../../components/shimmer/RestaurantCardShimme
 import Footer from "../../components/shared/Footer";
 import HomeShimmer from "../../components/shimmer/HomeShimmer";
 import { v4 as uuidv4 } from 'uuid';
+import { handleScrollTop } from "../../utils/helper";
+
+window.addEventListener("DOMContentLoaded", function () {
+	window.scrollTo(0, 0);
+});
 
 const Home = () => {
   const [allRestaurants, filteredRestaurants, setFilteredRestaurants] = useRestaurantsData();
@@ -95,7 +100,7 @@ const Home = () => {
             <div ref={carouselRef} className="flex overflow-x-scroll scroll-smooth scrollbar-hide">
               {
                 allRestaurants[1].map((info: Info) => (
-                  <Link to={"/collections/" +
+                  <Link onClick={() => {handleScrollTop()}} to={"/collections/" +
                     info?.action?.link
                       ?.split("=")[1]
                       ?.split("&")[0]} key={"collections" + info?.id} >
@@ -142,7 +147,7 @@ const Home = () => {
         {filteredRestaurants?.length !== 0 ? (
           <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center gap-2">
             {filteredRestaurants.map((restaurant: Restaurant) => (
-              <RestaurantCard info={restaurant.info} key={restaurant.info.parentId + uuidv4()} />
+              <RestaurantCard info={restaurant.info} key={uuidv4()} />
             ))}
             {
               showExtraData && (
