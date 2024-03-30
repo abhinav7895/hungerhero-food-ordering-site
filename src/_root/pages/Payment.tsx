@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
+import { Navigate } from "react-router-dom";
 const Payment = () => {
   const { tipAmount, items, restaurant } = useSelector((store) => store.cart);
   console.log(restaurant);
@@ -9,7 +9,7 @@ const Payment = () => {
 
   useEffect(() => {
     setTotalItemPrice(
-      items.reduce((totalSum, currentItem) => {
+      items.reduce((totalSum : number, currentItem : any) => {
         const itemPrice = currentItem[0]?.defaultPrice
           ? currentItem[0]?.defaultPrice
           : currentItem[0]?.price;
@@ -22,6 +22,12 @@ const Payment = () => {
     const updatedTotalPrice = totalItemPrice + 40 + Number(tipAmount) + 40;
     setTotalPrice(updatedTotalPrice);
   }, [tipAmount, totalItemPrice]);
+
+
+  // if the cart is empty redirect to the home page
+  if (!restaurant) {
+    return Navigate({ to: "/" });
+  }
 
   return (
     <>
@@ -90,7 +96,7 @@ const Payment = () => {
                 </label>
                 <textarea
                   id="address"
-
+                  rows={5}
                   className="block p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Flat No. 302, XYZ Apartment Main Street, Ashok Nagar South Delhi District
 110021 New Delhi"

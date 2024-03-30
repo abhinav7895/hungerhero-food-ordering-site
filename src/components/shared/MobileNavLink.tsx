@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { navLinks } from '../../utils/constants';
 import Navlink from './Navlink';
 import { RxCross1 } from 'react-icons/rx';
@@ -27,7 +27,7 @@ const MobileNavLink = ({ pathname, onClose }: { pathname: string, onClose: () =>
         <ul className="space-y-7 my-2 flex flex-col items-start">
         {
           navLinks.map(({id, Icon, path, text}) => (
-            <Navlink key={id} Icon={Icon} pathname={pathname} path={path} text={text}/>
+            <Navlink onClose={onClose} key={id} Icon={Icon} pathname={pathname} path={path} text={text}/>
           ))
         }
         </ul>

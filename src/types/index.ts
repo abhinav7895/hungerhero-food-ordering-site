@@ -5,6 +5,7 @@ export type LinkType = {
     Icon : IconType,
     path : string,
     text : string,
+    onClose : () => void,
 }
 
 export type locationType = {

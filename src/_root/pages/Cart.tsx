@@ -27,16 +27,17 @@ const Cart = () => {
 
   // set the totalPrice
   useEffect(() => {
-    setTotalItemPrice(cartItems.items.reduce((totalSum, currentItem) => {
+    const totalPrice = cartItems.items.reduce((totalSum, currentItem) => {
       const itemPrice = currentItem[0]?.defaultPrice ? currentItem[0]?.defaultPrice : currentItem[0]?.price;
       return (
         Math.floor(totalSum + (itemPrice / 100) * currentItem[1])
       )
-    }, 0));
+    }, 0);
+    setTotalItemPrice(totalPrice);
   }, [cartItems, totalItemPrice]);
 
   useEffect(() => {
-    const updatedTotalPrice = totalItemPrice + 40 + Number(tipAmount) + 40;
+    const updatedTotalPrice = Math.floor(totalItemPrice + 40 + Number(tipAmount) + 40);
     setTotalPrice(updatedTotalPrice);
   }, [totalItemPrice, tipAmount]);
 

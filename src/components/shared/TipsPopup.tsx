@@ -18,20 +18,29 @@ const TipPopup = ({ onClose}: { onClose: () => void}) => {
         }
     }
 
-    const handleSetTip = () => {
+    const handleSetTip = (tipAmount = 0) => {
         setShowGreet(false);
         setShowLimit(false);
-        const amount = inputRef.current.value as HTMLInputElement;
-        if (amount < 10 || amount > 1000) {
+        const amount = inputRef.current.value;
+
+        if (amount === "" && tipAmount === 0) {
+            return;  
+        }
+
+        const totalAmount = tipAmount > 0 ? tipAmount : amount;
+
+        if (totalAmount < 10 || totalAmount > 1000) {
             setShowLimit(true);
             return
         }
+
         setShowGreet(true);
         setTimeout(() => {
-            dispatch(addTip(amount));
+            dispatch(addTip(totalAmount));
             onClose();
         }, 2000)
     }
+
 
     useEffect(() => {
         const handleKeyPress = (key : KeyboardEvent) => {
@@ -60,6 +69,12 @@ const TipPopup = ({ onClose}: { onClose: () => void}) => {
                             <span className="text-gray-900 text-2xl">₹</span>
                             <input className="flex-1 appearance-none w-full py-1 px-2 leading-tight bg-white border text-xl border-gray-400 text-gray-900 rounded shadow focus:outline-none focus:shadow-outline" ref={inputRef} type="number" placeholder="0" id="tip" />
                         </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-3">
+                    {[10,20, 50, 100, 500].map((amount) => (
+                        <button className="bg-blue-400 py-1 px-2 text-white rounded-md  text-center flex justify-center hover:bg-blue-600 transition-all ease-out delay-100 border border-gray-500 shadow-md" onClick={() => handleSetTip(amount)} >₹{amount}</button>
+                    ))}
                     </div>
 
                     <button className="bg-gradient-to-r from-orange-400 to-red-500 p-2 text-white rounded-md hover:from-orange-500 text-center flex justify-center hover:to-red-600 transition-all ease-out delay-300" onClick={handleSetTip}>  {!showGreet ? "Pay Tip" : <TbLoader2 className="animate-spin text-xl" />

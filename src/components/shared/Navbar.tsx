@@ -50,7 +50,7 @@ const Navbar = () => {
       <ul className=" gap-4 hidden lg:flex-center">
         {
           navLinks.map(({ id, Icon, path, text }) => (
-            <Navlink key={id} Icon={Icon} pathname={pathname} path={path} text={text} />
+            <Navlink onClose={() => { setIsNavMenuOpen(false) }} key={id} Icon={Icon} pathname={pathname} path={path} text={text} />
           ))
         }
       </ul>

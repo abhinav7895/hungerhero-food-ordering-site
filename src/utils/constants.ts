@@ -14,6 +14,8 @@ export const IMG_URL =
 	"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 export const IMG_SMALL_URL =
 	"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,e_color,c_fill/";
+
+
 export const FETCH_REST_URL =
 	"https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?"; 
 
@@ -30,10 +32,14 @@ export const FETCH_INFO_URL =
 	"https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/list/v5?";
 
 export const FETCH_SEARCH_URL =
-	"https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/search/v3?lat=26.87560&lng=80.91150&str=Hello&trackingId=undefined&submitAction=ENTER&queryUniqueId=5bb5d4a5-0d3f-fa5b-9cb5-1e102a98be29";
+	"https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/search/suggest?";
+
 export const IMG_SEARCH_URL =
 	"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_112,h_112,c_fill/";
 	
+
+	
+
 export const FETCH_PRE_SEARCH_URL =
 	"https://proxy.cors.sh/https://www.swiggy.com/dapi/restaurants/search/suggest?lat=26.87560&lng=80.91150&str=Hello&trackingId=undefined";
 export const IMG_PRE_SEARCH_URL =
