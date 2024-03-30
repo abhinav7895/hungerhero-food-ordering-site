@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';;
 const HomeShimmer = () => {
   return (
     <>
-        <section className="mt-8 border-b border-b-gray-200 container mx-auto py-5">
+        <section className="mt-[120px] border-b border-b-gray-200 container mx-auto py-5">
           <div className="*:text-gray-800 flex justify-between px-4 gap-2 items-center">
             <div className="text-3xl h-[36px] w-[200px] md:w-[300px]  bg-gray-200 animate-pulse   font-bold rounded-xl">
 

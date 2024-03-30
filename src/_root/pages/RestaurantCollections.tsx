@@ -8,7 +8,7 @@ const RestaurantCollections = () => {
   const restaurant = useCollections(collectionId);
 
   return !restaurant ? <CollectionsShimmer /> : (
-    <section className="container mt-8">
+    <section className="container mt-[120px]">
       <h1 className="text-3xl md:text-4xl text-gray-800  font-bold">{restaurant[0].card.card.title}</h1>
       <p className="mt-1 truncate text-base lg:text-lg font-light text-gray-700">{restaurant[0].card.card.description}</p>
       <h3 className="my-7 text-xl md:text-2xl text-gray-900  font-semibold">Restaurants to explore</h3>

@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 const RestaurantMenuShimmer = () => {
     return (
-        <section className='max-w-[800px] mx-auto px-4'>
+        <section className='max-w-[800px] mt-[120px] mx-auto px-4'>
             <div className="w-full mt-10">
                 <div className="flex justify-between items-center pb-4">
                     <div className="flex flex-col gap-1">

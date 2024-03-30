@@ -27,7 +27,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="flex-between lg:py-3 px-5 max-w-[1440px] bg-white shadow-md mx-auto">
+    <nav className="fixed  z-50 left-0 right-0 top-0 flex-between lg:py-3 px-5 max-w-[1440px] bg-white shadow-md mx-auto">
       {/* for logo and the location */}
       <div className="flex-center gap-3">
         <Link to={"/"} className={`w-[48px] sm:w-14`}><img src="/assets/logo.svg" alt="logo" /></Link>

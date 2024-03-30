@@ -44,7 +44,7 @@ const Cart = () => {
 
   if (!cartItems.restaurant) {
     return (
-      <section className="flex container mx-auto mt-20 justify-center items-center flex-col">
+      <section className=" flex container mx-auto mt-20 justify-center items-center flex-col">
         <img src={'assets/emptycart.avif'} className="max-w-[430px] w-full" />
         <h1 className="text-xl mt-4 font-semibold text-gray-700">Your cart is empty</h1>
         <p className="text-base font-light text-gray-500">You can go to home page to view more restaurants</p>
@@ -56,7 +56,7 @@ const Cart = () => {
   }
 
   return (
-    <section className="container mx-auto">
+    <section className="container mx-auto mt-[120px]">
       <div className="max-w-screen-sm mx-auto mt-10 border rounded-lg h-[600px] overflow-scroll px-8 pt-8">
         <h1 className="text-4xl font-bold text-center text-gray-700 my-1 flex items-center gap-1 justify-center">Cart <IoMdCart /></h1>
         <p className="text-sm font-light text-center text-gray-700 uppercase pb-4">Secure Checkout </p>
